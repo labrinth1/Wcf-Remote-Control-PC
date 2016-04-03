@@ -1,0 +1,58 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+          "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <style>
+            .stretch {
+                width: 1024px;
+                height: 600px;
+            }
+
+            p {
+                margin-top: 0.1em;
+                margin-bottom: 0.1em;
+            }
+
+            #canvasWrapper {
+                border: 1px solid blue;
+                width: 1024px;
+                height: 600px;
+            }
+    </style>
+    <script src="Js/jquery-2.2.2.min.js"></script>
+</head>
+
+<body>
+    <div align="center">
+        <div>
+            <p>Please read instructions further down on this page!</p>
+            <button type="button" onclick="StartClient();">Start</button>
+            <button type="button" onclick="StopClient();">Stop</button>
+            <span id="spos"></span>
+        </div>
+
+        <div id="canvasWrapper" tabindex="1">
+            <canvas id="myCanvas" width="1024" height="600">
+                <img id="imgScreenShot" class="stretch" src="" alt="" />
+            </canvas>
+        </div>
+    </div>
+    <h1>Instructions</h1>
+
+    <ul>
+        <li>Start project Webapplication1 then start ConsoleApplication1, or in visual studio set the projects to multistart</li>
+        <li>The client will take screenshots and send it to the Wcf service. If the client running in debug mode events will not be fired, however all incomming events will display in the Consoleapplication.</li>
+        <li>The screenshot from the client will be placed in memory using MemoryMapped.</li>
+        <li>User events will be sent to WCF service using Ajax.</li>
+        <li>*If your running the client and the server on the same machine without two screens you will see a mirrory affect*</li>
+    </ul>
+
+    <p>Only one client can use the service at a time due to the singelton instance pattern used in the WCF.</p>
+
+    <p>Im working on a WCF service that will use sessions based MemoryMappedfiles for all variables and resources this will make it possible to use one WCF with multiple clients.</p>
+
+    <script src="Js/GetPicture.js"></script>
+    <script src="Js/EventListner.js"></script>
+</body>
+</html>
